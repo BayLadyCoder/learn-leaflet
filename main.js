@@ -62,7 +62,7 @@ const showPopupOnMapClick = (e) => {
 map.on('click', showPopupOnMapClick);
 
 // create icon
-const redIcon = L.icon({
+const myIcon = L.icon({
   iconUrl: '/img/leaf-red.png',
   shadowUrl: '/img/leaf-shadow.png',
 
@@ -74,4 +74,20 @@ const redIcon = L.icon({
 });
 
 // use icon as a marker
-L.marker([51.489507, -0.072098], { icon: redIcon }).addTo(map);
+L.marker([51.489507, -0.072098], { icon: myIcon }).addTo(map);
+
+// Defined Icon class with common properties
+const LeafIcon = L.Icon.extend({
+  options: {
+    shadowUrl: 'leaf-shadow.png',
+    iconSize: [38, 95],
+    shadowSize: [50, 64],
+    iconAnchor: [22, 94],
+    shadowAnchor: [4, 62],
+    popupAnchor: [-3, -76],
+  },
+});
+
+const greenIcon = new LeafIcon({ iconUrl: 'leaf-green.png' });
+const redIcon = new LeafIcon({ iconUrl: 'leaf-red.png' });
+const orangeIcon = new LeafIcon({ iconUrl: 'leaf-orange.png' });
