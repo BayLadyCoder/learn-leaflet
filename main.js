@@ -41,10 +41,22 @@ const popup = L.popup()
   .openOn(map);
 
 // handle click event on the map
-function onMapClick(e) {
-  console.log('click e', e);
-  alert('You clicked the map at ' + e.latlng);
-}
+// function onMapClick(e) {
+//   console.log('click e', e);
+//   alert('You clicked the map at ' + e.latlng);
+// }
 
 // add event handler
-map.on('click', onMapClick);
+// map.on('click', onMapClick);
+
+// use popup to display latLng when user clicks on the map
+const popupShowLatLng = L.popup();
+
+const showPopupOnMapClick = (e) => {
+  popupLatLng
+    .setLatLng(e.latlng)
+    .setContent('You clicked the map at ' + e.latlng.toString())
+    .openOn(map);
+};
+
+map.on('click', showPopupOnMapClick);
