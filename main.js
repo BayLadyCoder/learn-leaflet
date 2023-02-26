@@ -79,7 +79,7 @@ L.marker([51.489507, -0.072098], { icon: myIcon }).addTo(map);
 // Defined Icon class with common properties
 const LeafIcon = L.Icon.extend({
   options: {
-    shadowUrl: 'leaf-shadow.png',
+    shadowUrl: '/img/leaf-shadow.png',
     iconSize: [38, 95],
     shadowSize: [50, 64],
     iconAnchor: [22, 94],
@@ -88,6 +88,17 @@ const LeafIcon = L.Icon.extend({
   },
 });
 
-const greenIcon = new LeafIcon({ iconUrl: 'leaf-green.png' });
-const redIcon = new LeafIcon({ iconUrl: 'leaf-red.png' });
-const orangeIcon = new LeafIcon({ iconUrl: 'leaf-orange.png' });
+const greenIcon = new LeafIcon({ iconUrl: '/img/leaf-green.png' });
+const redIcon = new LeafIcon({ iconUrl: '/img/leaf-red.png' });
+const orangeIcon = new LeafIcon({ iconUrl: '/img/leaf-orange.png' });
+
+// use LeafIcon instances as markers and bind with popup
+L.marker([51.5, -0.09], { icon: greenIcon })
+  .addTo(map)
+  .bindPopup('I am a green leaf.');
+L.marker([51.495, -0.083], { icon: redIcon })
+  .addTo(map)
+  .bindPopup('I am a red leaf.');
+L.marker([51.49, -0.1], { icon: orangeIcon })
+  .addTo(map)
+  .bindPopup('I am an orange leaf.');
