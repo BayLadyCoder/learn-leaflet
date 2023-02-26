@@ -10,3 +10,11 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // add a marker to the map
 const marker = L.marker([51.5, -0.09]).addTo(map);
+
+// add a circle to the map
+const circle = L.circle([51.508, -0.11], {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5,
+  radius: 500,
+}).addTo(map);
