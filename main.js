@@ -39,3 +39,12 @@ const popup = L.popup()
   // it handles automatic closing of a previously opened popup
   // when opening a new one which is good for usability.
   .openOn(map);
+
+// handle click event on the map
+function onMapClick(e) {
+  console.log('click e', e);
+  alert('You clicked the map at ' + e.latlng);
+}
+
+// add event handler
+map.on('click', onMapClick);
