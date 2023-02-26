@@ -53,10 +53,25 @@ const popup = L.popup()
 const popupShowLatLng = L.popup();
 
 const showPopupOnMapClick = (e) => {
-  popupLatLng
+  popupShowLatLng
     .setLatLng(e.latlng)
     .setContent('You clicked the map at ' + e.latlng.toString())
     .openOn(map);
 };
 
 map.on('click', showPopupOnMapClick);
+
+// create icon
+const redIcon = L.icon({
+  iconUrl: '/img/leaf-red.png',
+  shadowUrl: '/img/leaf-shadow.png',
+
+  iconSize: [30, 55], // size of the icon
+  shadowSize: [25, 44], // size of the shadow
+  iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+  shadowAnchor: [4, 62], // the same for the shadow
+  popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+});
+
+// use icon as a marker
+L.marker([51.489507, -0.072098], { icon: redIcon }).addTo(map);
