@@ -26,7 +26,16 @@ const polygon = L.polygon([
   [51.51, -0.047],
 ]).addTo(map);
 
-// bindPopup to marker, circle, and polygon
+// bind popup to marker, circle, and polygon
 marker.bindPopup('<b>Hello world!</b><br>I am a popup.').openPopup();
 circle.bindPopup('I am a circle.');
 polygon.bindPopup('I am a polygon.');
+
+// use popup as a layer
+const popup = L.popup()
+  .setLatLng([51.513, -0.09])
+  .setContent('I am a standalone popup.')
+  // use 'openOn' instead of 'addTo' because
+  // it handles automatic closing of a previously opened popup
+  // when opening a new one which is good for usability.
+  .openOn(map);
